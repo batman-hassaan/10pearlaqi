@@ -158,7 +158,7 @@ The training process takes several minutes.
 This project is licensed under the MIT License.
 
 **Author:**  
-**Hassaan Ahmed**  
+**Muhammad Hassaan Shahid**  
 [GitHub Profile](https://github.com/hassaan217)
 
 **Acknowledgments:**  
