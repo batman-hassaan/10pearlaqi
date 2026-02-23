@@ -7,23 +7,6 @@
 
 An advanced, real-time Air Quality Monitoring and Forecasting system powered by Machine Learning. Designed for Karachi, Pakistan, this dashboard provides live AQI updates, 72-hour predictive forecasting, and health recommendations using XGBoost, LightGBM, and Scikit-Learn models.
 
----
-
-## 📋 Table of Contents
-- [Project Overview](#project-overview)
-- [Key Features](#key-features)
-- [Technology Stack](#technology-stack)
-- [System Architecture](#system-architecture)
-- [Prerequisites](#prerequisites)
-- [Installation & Setup](#installation--setup)
-- [Configuration](#configuration)
-- [Usage Guide](#usage-guide)
-- [Model Training](#model-training)
-- [Deployment](#deployment)
-- [Troubleshooting](#troubleshooting)
-- [License & Author](#license--author)
-
----
 
 ## 🚀 Project Overview
 
