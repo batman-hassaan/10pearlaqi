@@ -7,6 +7,12 @@
 
 An advanced, real-time Air Quality Monitoring and Forecasting system powered by Machine Learning. Designed for Karachi, Pakistan, this dashboard provides live AQI updates, 72-hour predictive forecasting, and health recommendations using XGBoost, LightGBM, and Scikit-Learn models.
 
+### Preview Live link
+https://10pearlapp-7btibmslyera2uqrvugxwj.streamlit.app/
+
+### StreamLit Github deployment
+https://github.com/hassaan217/10pearlstreamlit
+
 
 ## 🚀 Project Overview
 
