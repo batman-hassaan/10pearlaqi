@@ -1,4 +1,4 @@
-```markdown
+
 # 🌍 AQI Intelligence Dashboard
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/)
@@ -104,77 +104,7 @@ Before you begin, ensure you have the following installed:
 
 ---
 
-## 💻 Installation & Setup
 
-Follow these steps to get the project running on your local machine.
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/hassaan217/10pearlstreamlit.git
-cd 10pearlstreamlit
-```
-
-### 2. Create Virtual Environment
-Create a virtual environment to isolate project dependencies.
-
-**Windows:**
-```bash
-python -m venv venv
-venv\Scripts\activate
-```
-
-**macOS/Linux:**
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
-### 3. Install Dependencies
-Install the required Python packages using the `requirements.txt` file.
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Run the Application
-Launch the Streamlit app.
-```bash
-streamlit run app.py
-```
-The application will open automatically in your default web browser at `http://localhost:8501`.
-
----
-
-## ⚙️ Configuration
-
-The application requires environment variables to connect to external services.
-
-### Option A: Using `.env` file (Local)
-Create a file named `.env` in the root directory and add the following:
-
-```env
-# MongoDB Connection String
-MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/?retryWrites=true&w=majority
-
-# OpenWeather API Key
-OPENWEATHER_API_KEY=your_api_key_here
-
-# Geographic Coordinates (Karachi, Pakistan)
-LATITUDE=24.8607
-LONGITUDE=67.0011
-```
-
-### Option B: Using Streamlit Secrets (Cloud)
-If deploying to Streamlit Cloud, go to your app settings > **Secrets** and paste the following in TOML format:
-
-```toml
-[database]
-mongo_uri = "mongodb+srv://<username>:<password>@cluster.mongodb.net/?retryWrites=true&w=majority"
-
-[weather]
-api_key = "your_api_key_here"
-latitude = 24.8607
-longitude = 67.0011
-```
 
 ---
 
@@ -223,71 +153,6 @@ The project utilizes an optimized training pipeline to ensure speed and accuracy
 > **Note**: The models are optimized to train in seconds rather than minutes by reducing estimators and cross-validation folds, making it suitable for real-time retraining.
 
 ---
-
-## 🚢 Deployment
-
-### Option A: Streamlit Cloud (Recommended)
-1. Push your code to a GitHub repository.
-2. Log in to [share.streamlit.io](https://share.streamlit.io).
-3. Click **"New app"** and select your repository.
-4. Ensure the main file path is `app.py`.
-5. Paste your secrets in the **Secrets** tab.
-
-### Option B: Docker
-You can containerize the application using the following Dockerfile:
-
-```dockerfile
-FROM python:3.9-slim
-
-WORKDIR /app
-
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . .
-
-EXPOSE 8501
-
-CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
-```
-
-Build and run:
-```bash
-docker build -t aqi-dashboard .
-docker run -p 8501:8501 --env-file .env aqi-dashboard
-```
-
----
-
-## 🐛 Troubleshooting
-
-### Error: `Permission denied to github-actions[bot]`
-**Description:**
-The GitHub Action fails to push model updates (`.pkl` files) back to the repository.
-```
-remote: Permission to hassaan217/10pearlstreamlit.git denied to github-actions[bot].
-fatal: unable to access 'https://github.com/...': The requested URL returned error: 403
-```
-**Solution:**
-1. Go to your GitHub Repository.
-2. Navigate to **Settings** > **Actions** > **General**.
-3. Scroll to **Workflow permissions**.
-4. Select **Read and write permissions**.
-5. Click **Save**.
-
-### Error: `MongoDB Connection Timeout`
-**Description:**
-Cannot connect to the database.
-**Solution:**
-- Verify your IP is whitelisted in MongoDB Atlas (Network Access).
-- Check if `MONGO_URI` is correct and contains `retryWrites=true&w=majority`.
-
-### Error: `401 Unauthorized` (OpenWeather)
-**Description:**
-The API key is invalid.
-**Solution:**
-- Confirm the API key is correct.
-- Note that new OpenWeather API keys may take 10-60 minutes to activate.
 
 ### Issue: Training is too slow
 **Description:**
